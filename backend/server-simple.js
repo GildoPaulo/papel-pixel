@@ -4819,6 +4819,12 @@ app.use('/api/ab-testing', require('./routes/ab-testing'));
 app.use('/api/coupons', require('./routes/coupons'));
 
 // ==========================================
+// FAVORITES ROUTES
+// ==========================================
+
+app.use('/api/favorites', require('./routes/favorites'));
+
+// ==========================================
 // DEBUG ROUTES (REMOVER EM PRODUÇÃO)
 // ==========================================
 
