@@ -1,7 +1,8 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import { useAuth } from './AuthContextMySQL';
+import { toast } from 'sonner';
 
-interface FavoriteItem {
+interface Product {
   id: string;
   name: string;
   price: number;
@@ -10,76 +11,113 @@ interface FavoriteItem {
 }
 
 interface FavoritesContextType {
-  favorites: FavoriteItem[];
-  addToFavorites: (item: FavoriteItem) => void;
-  removeFromFavorites: (id: string) => void;
-  isFavorite: (id: string) => boolean;
-  toggleFavorite: (item: FavoriteItem) => void;
+  favorites: Product[];
+  loading: boolean;
+  toggleFavorite: (product: Product) => Promise<void>;
+  isFavorite: (productId: string) => boolean;
+  loadFavorites: () => Promise<void>;
 }
 
 const FavoritesContext = createContext<FavoritesContextType | undefined>(undefined);
 
 export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
+  const [favorites, setFavorites] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(false);
   const { user } = useAuth();
-  const [favorites, setFavorites] = useState<FavoriteItem[]>([]);
 
-  // Carregar favoritos do localStorage ao iniciar
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+
+  const loadFavorites = useCallback(async () => {
+    if (!user?.token) {
+      setFavorites([]);
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch(`${API_URL}/favorites`, {
+        headers: {
+          'Authorization': `Bearer ${user.token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) throw new Error('Erro ao carregar favoritos');
+
+      const data = await response.json();
+      setFavorites(data.favorites || []);
+    } catch (error) {
+      console.error('Erro ao carregar favoritos:', error);
+      setFavorites([]);
+    } finally {
+      setLoading(false);
+    }
+  }, [user, API_URL]);
+
   useEffect(() => {
     if (user) {
-      const saved = localStorage.getItem(`favorites_${user.id}`);
-      if (saved) {
-        try {
-          setFavorites(JSON.parse(saved));
-        } catch {
-          setFavorites([]);
-        }
-      }
+      loadFavorites();
     } else {
-      // Limpar favoritos ao fazer logout
       setFavorites([]);
     }
-  }, [user]);
+  }, [user, loadFavorites]);
 
-  // Salvar favoritos no localStorage sempre que mudar
-  useEffect(() => {
-    if (user && favorites.length >= 0) {
-      localStorage.setItem(`favorites_${user.id}`, JSON.stringify(favorites));
+  const toggleFavorite = async (product: Product) => {
+    if (!user?.token) {
+      toast.error('Faça login para adicionar aos favoritos');
+      return;
     }
-  }, [favorites, user]);
 
-  const addToFavorites = (item: FavoriteItem) => {
-    setFavorites(current => {
-      if (current.find(fav => fav.id === item.id)) {
-        return current; // Já existe
+    const isCurrentlyFavorite = isFavorite(product.id);
+
+    try {
+      if (isCurrentlyFavorite) {
+        // Remover
+        const response = await fetch(`${API_URL}/favorites/${product.id}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${user.token}`,
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) throw new Error('Erro ao remover favorito');
+
+        setFavorites(prev => prev.filter(f => f.id !== product.id));
+        toast.success('Removido dos favoritos');
+      } else {
+        // Adicionar
+        const response = await fetch(`${API_URL}/favorites/${product.id}`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${user.token}`,
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) throw new Error('Erro ao adicionar favorito');
+
+        setFavorites(prev => [...prev, product]);
+        toast.success('Adicionado aos favoritos!');
       }
-      return [...current, item];
-    });
-  };
-
-  const removeFromFavorites = (id: string) => {
-    setFavorites(current => current.filter(item => item.id !== id));
-  };
-
-  const isFavorite = (id: string): boolean => {
-    return favorites.some(item => item.id === id);
-  };
-
-  const toggleFavorite = (item: FavoriteItem) => {
-    if (isFavorite(item.id)) {
-      removeFromFavorites(item.id);
-    } else {
-      addToFavorites(item);
+    } catch (error: any) {
+      console.error('Erro ao toggle favorito:', error);
+      toast.error(error.message || 'Erro ao atualizar favoritos');
     }
+  };
+
+  const isFavorite = (productId: string) => {
+    return favorites.some(f => f.id === productId);
   };
 
   return (
     <FavoritesContext.Provider
       value={{
         favorites,
-        addToFavorites,
-        removeFromFavorites,
-        isFavorite,
+        loading,
         toggleFavorite,
+        isFavorite,
+        loadFavorites,
       }}
     >
       {children}
@@ -94,6 +132,3 @@ export const useFavorites = () => {
   }
   return context;
 };
-
-
-

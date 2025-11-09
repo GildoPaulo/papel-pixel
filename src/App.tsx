@@ -12,7 +12,9 @@ import { UsersProvider } from "@/contexts/UsersContext";
 import { ReturnsProvider } from "@/contexts/ReturnsContext";
 import { NotificationsProvider } from "@/contexts/NotificationsContext";
 import { ChatBotProvider } from "@/contexts/ChatBotContext";
+import { FavoritesProvider } from "@/contexts/FavoritesContext";
 import Index from "./pages/Index";
+import Favorites from "./pages/Favorites";
 import Marketing from "./pages/Marketing";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -54,6 +56,7 @@ const App = () => {
                 <NotificationsProvider>
                   <ChatBotProvider>
                   <EmailMarketingProvider>
+                    <FavoritesProvider>
                     <CartProvider>
           <Toaster />
           <Sonner />
@@ -79,6 +82,7 @@ const App = () => {
             <Route path="/checkout-success" element={<ProtectedRoute><CheckoutSuccess /></ProtectedRoute>} />
             <Route path="/payment-receipt/:transactionId" element={<ProtectedRoute><PaymentReceipt /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+            <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
             <Route path="/admin" element={<ProtectedRoute requireAdmin><Admin /></ProtectedRoute>} />
             <Route path="/marketing" element={<ProtectedRoute requireAdmin><Marketing /></ProtectedRoute>} />
             <Route path="/debug-auth" element={<DebugAuth />} />
@@ -87,6 +91,7 @@ const App = () => {
           </Routes>
         </BrowserRouter>
                     </CartProvider>
+                    </FavoritesProvider>
                   </EmailMarketingProvider>
                   </ChatBotProvider>
                 </NotificationsProvider>
