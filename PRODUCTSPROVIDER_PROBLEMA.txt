@@ -1,0 +1,13 @@
+=========================================
+🎯 ProductsProvider É O PROBLEMA!
+=========================================
+
+TESTE:
+Sem ProductsProvider = FUNCIONA
+Com ProductsProvider = BRANCO
+
+SOLUÇÃO:
+Verificar ProductsContext.tsx
+
+=========================================
+

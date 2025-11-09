@@ -1,0 +1,52 @@
+═══════════════════════════════════════════════════════
+  🔧 CORRIGIR ERRO DE AUTENTICAÇÃO
+═══════════════════════════════════════════════════════
+
+❌ ERRO: "Rota não encontrada /api/auth/register"
+
+✅ SOLUÇÃO: Instalar as novas dependências
+
+───────────────────────────────────────────────────────
+
+📋 PASSO A PASSO:
+
+1. Abra um Terminal/PowerShell na pasta do projeto
+
+2. Execute:
+   cd backend
+   npm install
+
+3. Aguarde a instalação (pode levar 1-2 minutos)
+
+4. Reinicie o servidor:
+   npm run dev
+
+5. Teste novamente:
+   curl http://localhost:3001
+
+───────────────────────────────────────────────────────
+
+✅ DEPOIS DE npm install, O SERVIDOR DEVE INICIAR:
+
+🚀 ========================================
+   Papel & Pixel Backend API
+   Server running on http://localhost:3001
+========================================
+
+───────────────────────────────────────────────────────
+
+🧪 TESTAR REGISTRO:
+
+curl -X POST http://localhost:3001/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d "{\"name\":\"Teste\",\"email\":\"teste@teste.com\",\"password\":\"123456\"}"
+
+───────────────────────────────────────────────────────
+
+📚 MAIS DETALHES:
+- CORRIGIR_AUTENTICACAO.md - Guia completo
+- INICIO_RAPIDO.md - Testes rápidos
+- TESTE_COMPLETO_BACKEND.md - Todos os testes
+
+═══════════════════════════════════════════════════════
+

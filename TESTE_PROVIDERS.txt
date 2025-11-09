@@ -1,0 +1,17 @@
+=========================================
+🧪 TESTANDO PROVIDERS UM POR UM
+=========================================
+
+Testando agora com:
+- AuthProvider
+- ProductsProvider
+- CartProvider
+
+ME DIGA:
+1. Aparece alguma coisa?
+2. Fica branco?
+
+Se ficar branco = ProductsProvider tem problema!
+
+=========================================
+

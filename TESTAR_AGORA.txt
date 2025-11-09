@@ -1,0 +1,42 @@
+=========================================
+✅ SUPABASE COMPLETAMENTE REMOVIDO!
+=========================================
+
+O QUE FOI FEITO:
+✅ AuthContext.tsx substituído por versão simples
+✅ ZERO chamadas ao Supabase
+✅ Usa localStorage para salvar usuário
+✅ Login/cadastro aceita QUALQUER email/senha
+
+=========================================
+TESTE AGORA:
+=========================================
+
+1. Limpe cache:
+   F12 → Console → Cole:
+   localStorage.clear(); location.reload();
+
+2. OU recarregue:
+   Ctrl+Shift+R (hard refresh)
+
+3. Abra: http://localhost:8080
+
+=========================================
+RESULTADO ESPERADO:
+=========================================
+
+✅ Site aparece normalmente!
+✅ Produtos carregam
+✅ Pode navegar
+✅ Login aceita qualquer email/senha
+
+=========================================
+SE AINDA NÃO FUNCIONAR:
+=========================================
+
+Me diga:
+1. Qual erro aparece no Console (F12)?
+2. O que aparece na tela? (branco, erro específico?)
+
+=========================================
+

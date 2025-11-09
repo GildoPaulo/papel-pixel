@@ -1,0 +1,10 @@
+IMPORTANTE: Crie um arquivo chamado .env na raiz do projeto
+
+Conteúdo do arquivo .env:
+
+VITE_SUPABASE_URL=https://leqyvitngubadvsyfzya.supabase.co
+VITE_SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcXl2aXRuZ3ViYWR2c3lmenlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE1Nzc2MTksImV4cCI6MjA3NzE1MzYxOX0.eLs15AWrJCjQK-iTnifRG6EoVQ-1KRTEdCx2M0Bpu7Y
+VITE_API_URL=http://localhost:3001/api
+
+ATENÇÃO: Use VITE_ e não REACT_APP_!
+

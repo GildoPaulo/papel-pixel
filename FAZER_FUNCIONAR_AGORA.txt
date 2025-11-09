@@ -1,0 +1,43 @@
+=========================================
+FAZER SITE FUNCIONAR AGORA
+=========================================
+
+FEITO:
+✅ Supabase desabilitado (src/config/supabase.ts)
+✅ AuthContext simplificado criado (AuthContextSimple.tsx)
+✅ App.tsx usando AuthContextSimple
+
+PRÓXIMO PASSO:
+1. Limpar localStorage
+2. Recarregar página
+3. Site deve aparecer!
+
+=========================================
+NO NAVEGADOR (F12 → Console):
+=========================================
+
+localStorage.clear();
+location.reload();
+
+OU SIMPLESMENTE:
+Ctrl+Shift+R (hard refresh)
+
+=========================================
+RESULTADO ESPERADO:
+=========================================
+
+- ✅ Site aparece normalmente
+- ✅ Produtos carregam
+- ✅ Login/Cadastro aceita QUALQUER coisa (temporariamente)
+
+=========================================
+DEPOIS:
+=========================================
+
+Quando quiser autenticação REAL:
+- Siga: MYSQL_ATIVAR_AGORA.md
+- Ative backend MySQL
+- Use AuthContextMySQL
+
+=========================================
+

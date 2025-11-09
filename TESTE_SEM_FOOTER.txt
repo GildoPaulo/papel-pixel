@@ -1,0 +1,16 @@
+=========================================
+🧪 SEM FOOTER
+=========================================
+
+ME DIGA:
+- Aparece a página?
+- Ou fica branco?
+
+SE APARECER:
+Footer é o problema!
+
+SE FICAR BRANCO:
+Header tem algum erro escondido!
+
+=========================================
+

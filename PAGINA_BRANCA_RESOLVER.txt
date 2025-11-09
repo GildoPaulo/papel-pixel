@@ -1,0 +1,58 @@
+=========================================
+RESOLVER PÁGINA BRANCA AGORA
+=========================================
+
+PROBLEMA: Página aparece em branco com []
+
+CAUSA: Arquivo .env com REACT_APP_ em vez de VITE_
+
+SOLUÇÃO:
+1. Criar arquivo .env na raiz (mesmo nível que package.json)
+2. Usar VITE_ prefix (não REACT_APP_)
+3. Reiniciar servidor
+
+=========================================
+CONTEÚDO DO .env
+=========================================
+
+VITE_SUPABASE_URL=https://leqyvitngubadvsyfzya.supabase.co
+VITE_SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcXl2aXRuZ3ViYWR2c3lmenlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE1Nzc2MTksImV4cCI6MjA3NzE1MzYxOX0.eLs15AWrJCjQK-iTnifRG6EoVQ-1KRTEdCx2M0Bpu7Y
+VITE_API_URL=http://localhost:3001/api
+
+=========================================
+PASSO A PASSO
+=========================================
+
+1. Abra seu editor de texto
+2. Crie novo arquivo chamado: .env
+   (SIM, com ponto na frente!)
+   
+3. Cole o conteúdo acima
+
+4. Salve na raiz do projeto:
+   C:\Users\Gildo Paulo Correia\Documents\pixel\.env
+
+5. No terminal, pare o servidor (Ctrl+C)
+
+6. Reinicie:
+   npm run dev
+
+7. Abra: http://localhost:8080
+
+Deve funcionar agora!
+
+=========================================
+SE AINDA APARECER BRANCO
+=========================================
+
+Abra F12 (DevTools) → Console
+
+Procure por erros em vermelho e me envie!
+
+Possíveis erros:
+- "Cannot find module"
+- "Failed to load"
+- "Syntax error"
+
+=========================================
+

@@ -1,0 +1,18 @@
+=========================================
+🎯 TESTE FINAL
+=========================================
+
+Agora testei só com Index (sem ProductsProvider).
+
+ME DIGA:
+1. APARECE a página inicial?
+2. Fica branco?
+
+SE FUNCIONAR:
+Index NÃO precisa ProductsProvider!
+
+SE FICAR BRANCO:
+Index tem outro problema.
+
+=========================================
+

@@ -1,0 +1,44 @@
+# -------------------------------
+# Servidor
+# -------------------------------
+PORT=3001
+NODE_ENV=development
+JWT_SECRET=minha-chavesecreta12
+
+# -------------------------------
+# Banco de Dados
+# -------------------------------
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=papel_pixel
+
+# -------------------------------
+# Email (para notificações e newsletter)
+# -------------------------------
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=gildopaulovictor@gmail.com
+EMAIL_PASS=luaomglpwyztgnkz
+
+# -------------------------------
+# PayPal - LIVE (Produção)
+# -------------------------------
+PAYPAL_CLIENT_ID=Ad19EAe6quDj9ZNGVb5epKI0Tyyu0J7DWKlcVuwUroBvAXTIqd-sABe5gLXec0nFFbCUOC4paJDISyBd
+PAYPAL_SECRET=ECwnalJgflK7pr4MOVeW8-rZVuFzGJgb3i483xbIyWBCx3QiXf7w2A_DlijLFBcIhHrMTN6pfxJ-Wm8d
+PAYPAL_API_URL=https://api-m.paypal.com
+PAYMENT_MODE=live
+
+# -------------------------------
+# Frontend
+# -------------------------------
+FRONTEND_URL=http://localhost:8080
+
+# -------------------------------
+# Upload de imagens
+# -------------------------------
+UPLOAD_DIR=uploads
+MAX_FILE_SIZE=5242880
+ALLOWED_FILE_TYPES=jpg,png,gif,webp
+

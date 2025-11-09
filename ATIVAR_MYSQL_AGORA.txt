@@ -1,0 +1,48 @@
+=========================================
+🚀 MIGRAR PARA MYSQL AGORA
+=========================================
+
+FRONTEND JÁ ATUALIZADO:
+✅ AuthContextMySQL criado
+✅ api.ts criado
+✅ App.tsx usando AuthContextMySQL
+✅ Sem Supabase!
+
+=========================================
+PASSO A PASSO:
+=========================================
+
+1. INSTALE XAMPP
+https://www.apachefriends.org/
+
+2. INICIE MYSQL
+XAMPP Control Panel → Start MySQL
+
+3. CRIE BANCO DE DADOS
+Abra: http://localhost/phpmyadmin
+Execute o SQL do arquivo: INICIAR_BACKEND_MYSQL.md
+
+4. INICIE BACKEND
+cd backend
+npm start
+
+5. CRIE .env NA RAIZ
+VITE_API_URL=http://localhost:3001/api
+
+6. TESTE
+http://localhost:8080
+
+=========================================
+RESULTADO:
+=========================================
+
+Site funcionará com:
+✅ Backend MySQL
+✅ Autenticação real
+✅ Sem Supabase!
+✅ Sem erros!
+
+Veja: INICIAR_BACKEND_MYSQL.md para passos detalhados!
+
+=========================================
+

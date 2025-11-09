@@ -1,0 +1,30 @@
+═══════════════════════════════════════════════════════
+  🔧 PROBLEMA: Dependências não instaladas
+  ✅ SOLUÇÃO: Usar servidor simples
+═══════════════════════════════════════════════════════
+
+COMANDOS RÁPIDOS:
+
+1. Parar o servidor atual (Ctrl+C)
+
+2. Iniciar o servidor simples:
+   
+   cd backend
+   node server-simple.js
+
+3. Testar:
+
+   curl http://localhost:3001/api/auth/register `
+     -H "Content-Type: application/json" `
+     -d '{"name":"João","email":"joao@teste.com","password":"123456"}'
+
+═══════════════════════════════════════════════════════
+
+OU INSTALAR DEPENDÊNCIAS COMPLETAS:
+
+cd backend
+npm install
+npm run dev
+
+═══════════════════════════════════════════════════════
+

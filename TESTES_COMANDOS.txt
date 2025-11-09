@@ -1,0 +1,110 @@
+╔═══════════════════════════════════════════════════════════╗
+║          ✅ BACKEND FUNCIONANDO - COMANDOS PRONTOS        ║
+╚═══════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════
+  TESTE 1: Registrar Usuário
+═══════════════════════════════════════════════════════════
+
+No PowerShell:
+--------------
+
+Invoke-RestMethod -Uri "http://localhost:3001/api/auth/register" `
+  -Method POST `
+  -Headers @{"Content-Type"="application/json"} `
+  -Body '{"name":"Teste User","email":"teste@teste.com","password":"123456"}'
+
+Curl:
+-----
+
+curl -X POST http://localhost:3001/api/auth/register `
+  -H "Content-Type: application/json" `
+  -d "{\"name\":\"Teste User\",\"email\":\"teste@teste.com\",\"password\":\"123456\"}"
+
+═══════════════════════════════════════════════════════════
+  TESTE 2: Login (Copiar o TOKEN da resposta!)
+═══════════════════════════════════════════════════════════
+
+Invoke-RestMethod -Uri "http://localhost:3001/api/auth/login" `
+  -Method POST `
+  -Headers @{"Content-Type"="application/json"} `
+  -Body '{"email":"teste@teste.com","password":"123456"}'
+
+═══════════════════════════════════════════════════════════
+  TESTE 3: Buscar Produtos
+═══════════════════════════════════════════════════════════
+
+Invoke-RestMethod -Uri "http://localhost:3001/api/products"
+
+OU abrir no navegador:
+http://localhost:3001/api/products
+
+═══════════════════════════════════════════════════════════
+  TESTE 4: Criar Produto (substitua TOKEN_AQUI)
+═══════════════════════════════════════════════════════════
+
+$headers = @{
+  "Content-Type" = "application/json"
+  "Authorization" = "Bearer TOKEN_AQUI"
+}
+
+$body = @{
+  name = "Produto Teste"
+  category = "livros"
+  price = 150
+  description = "Descrição do produto"
+  image = "https://via.placeholder.com/300"
+  stock = 10
+} | ConvertTo-Json
+
+Invoke-RestMethod -Uri "http://localhost:3001/api/products" `
+  -Method POST -Headers $headers -Body $body
+
+═══════════════════════════════════════════════════════════
+  TESTE 5: Criar Pedido (substitua TOKEN_AQUI)
+═══════════════════════════════════════════════════════════
+
+$headers = @{
+  "Content-Type" = "application/json"
+  "Authorization" = "Bearer TOKEN_AQUI"
+}
+
+$body = @{
+  items = @(@{
+    id = 1
+    quantity = 2
+    price = 150
+  })
+  total = 300
+  shippingInfo = @{
+    name = "João Silva"
+    email = "joao@teste.com"
+    phone = "+258841234567"
+    address = "Rua Principal"
+    city = "Beira"
+    province = "Sofala"
+  }
+  paymentMethod = "cash"
+} | ConvertTo-Json -Depth 10
+
+Invoke-RestMethod -Uri "http://localhost:3001/api/orders" `
+  -Method POST -Headers $headers -Body $body
+
+═══════════════════════════════════════════════════════════
+  VERIFICAR NO BANCO (phpMyAdmin)
+═══════════════════════════════════════════════════════════
+
+SELECT * FROM users;
+SELECT * FROM products;
+SELECT * FROM orders;
+SELECT * FROM notifications;
+
+═══════════════════════════════════════════════════════════
+  📚 Mais Informações
+═══════════════════════════════════════════════════════════
+
+- TESTAR_Agora.md - Este arquivo
+- TESTE_COMPLETO_BACKEND.md - Todos os testes
+- INICIO_RAPIDO.md - Início rápido
+- COMO_TESTAR.md - Como testar
+

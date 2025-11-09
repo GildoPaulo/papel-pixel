@@ -1,0 +1,23 @@
+=========================================
+🧪 TESTE MÍNIMO
+=========================================
+
+App.tsx com ZERO providers:
+- Sem AuthProvider
+- Sem CartProvider  
+- Sem TooltipProvider
+- Sem QueryClient
+- Só React + BrowserRouter + Toaster
+
+ME DIGA:
+- Aparece a página?
+- Ou continua branco?
+
+SE APARECER:
+Problema é em algum Provider!
+
+SE FICAR BRANCO:
+Problema é no Vite ou React mesmo!
+
+=========================================
+

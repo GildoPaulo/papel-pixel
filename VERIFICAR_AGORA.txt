@@ -1,0 +1,17 @@
+=========================================
+✅ AUTHCONTEXT SIMPLIFICADO
+=========================================
+
+Voltei para versão SIMPLES que funciona:
+✅ Sem Supabase
+✅ Sem backend
+✅ Usa localStorage
+✅ Login/Cadastro aceita qualquer email
+
+TESTE AGORA:
+http://localhost:8080
+
+Deve funcionar!
+
+=========================================
+

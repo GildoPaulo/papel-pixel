@@ -1,0 +1,15 @@
+=========================================
+✅ SITE SIMPLIFICADO
+=========================================
+
+VERSÃO FUNCIONAL:
+- Header
+- Página inicial simples
+- Footer
+- SEM ProductsProvider
+- SEM Index.tsx complexa
+
+TESTE AGORA!
+
+=========================================
+
