@@ -1,11 +1,8 @@
 [phases.setup]
-nixPkgs = ["nodejs_18", "mysql80"]
+nixPkgs = ["nodejs_18"]
 
 [phases.install]
-cmds = ["npm ci"]
-
-[phases.build]
-cmds = ["echo 'Backend não precisa de build'"]
+cmds = ["npm ci --only=production"]
 
 [start]
 cmd = "node server-simple.js"
