@@ -80,3 +80,4 @@ SELECT 'Migration concluída: Campos tipo, arquivo_digital e gratuito adicionado
 
 
 
+
